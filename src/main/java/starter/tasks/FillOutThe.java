@@ -9,19 +9,26 @@ import starter.pages.WebInputsPage;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class FillOutThe implements Task {
-    public static FillOutThe webInputsForm() {
-        return instrumented(FillOutThe.class);
+    private final String number, text, password, date;
+
+    public FillOutThe(String number, String text, String password, String date){
+        this.number = number;
+        this.text = text;
+        this.password = password;
+        this.date = date;
+    }
+    public static FillOutThe webInputsForm(String number, String text, String password, String date) {
+        return instrumented(FillOutThe.class, number, text, password, date);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Enter.theValue("1343").into(WebInputsPage.INPUT_NUMBER),
-                Enter.theValue("abcd").into(WebInputsPage.INPUT_TEXT),
-                Enter.theValue("password").into(WebInputsPage.INPUT_PASSWORD),
-                Enter.theValue("12122024").into(WebInputsPage.INPUT_DATE),
-                Click.on(WebInputsPage.INPUT_DISPLAY_INPUTS),
-                Click.on(WebInputsPage.INPUT_CLEAR_INPUTS)
+                Enter.theValue(number).into(WebInputsPage.INPUT_NUMBER),
+                Enter.theValue(text).into(WebInputsPage.INPUT_TEXT),
+                Enter.theValue(password).into(WebInputsPage.INPUT_PASSWORD),
+                Enter.theValue(date).into(WebInputsPage.INPUT_DATE),
+                Click.on(WebInputsPage.INPUT_DISPLAY_INPUTS)
         );
     }
 

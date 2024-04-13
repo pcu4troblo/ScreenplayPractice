@@ -41,7 +41,8 @@ dependencies {
                 "org.junit.jupiter:junit-jupiter-engine:${junit_jupiter_engine_version}",
                 "org.junit.vintage:junit-vintage-engine:${junit_vintage_engine_version}",
                 "ch.qos.logback:logback-classic:${logback_classic_version}",
-                "org.assertj:assertj-core:${assertj_core_version}"
+                "org.assertj:assertj-core:${assertj_core_version}",
+                'com.github.javafaker:javafaker:1.0.2'
         compileOnly 'org.projectlombok:lombok:1.18.24'
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     }
